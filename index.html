@@ -240,6 +240,8 @@
       </div>
       <form class="contact-form" id="projectForm">
         <h3 style="font-size:1.55rem;margin:0 0 8px">Tell me about your project</h3><p style="font-size:.88rem;color:#718094;margin:0 0 23px">A few details will help make the first conversation useful.</p>
+        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="_t" id="formTs" value="">
         <div class="form-grid">
           <div class="field"><label for="name">Your name *</label><input id="name" name="name" required placeholder="Name"></div>
           <div class="field"><label for="organisation">Business / organisation</label><input id="organisation" name="organisation" placeholder="Organisation name"></div>
@@ -248,8 +250,8 @@
           <div class="field full"><label for="need">What do you need help with?</label><select id="need" name="need"><option value="">Select the closest match</option><option>Custom ERP / business management system</option><option>Agricultural or cooperative management</option><option>Fleet / transport management</option><option>Property / rental management</option><option>Client portal / document workflow</option><option>Business process automation / integration</option><option>Not sure yet — help me define it</option></select></div>
           <div class="field full"><label for="message">What problem are you trying to solve? *</label><textarea id="message" name="message" required placeholder="Tell me how you currently handle this work, what is difficult and what a better outcome would look like."></textarea></div>
         </div>
-        <button class="btn btn-primary" type="submit" style="width:100%">Prepare my project enquiry <span>→</span></button>
-        <p class="form-hint" id="formHint">This opens your email app with the details filled in, ready to send. Prefer to chat? Use the WhatsApp number on the left.</p>
+        <button class="btn btn-primary" type="submit" style="width:100%">Send my project enquiry <span>→</span></button>
+        <p class="form-hint" id="formHint">Your details go straight to Douglas. Prefer to chat? Use the WhatsApp number on the left.</p>
       </form>
     </div>
   </section>
@@ -261,15 +263,20 @@
     var yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Set this to a form endpoint (e.g. Formspree/Basin or your own PHP handler)
-    // to capture enquiries server-side. When empty, the form falls back to mailto:.
-    var FORM_ENDPOINT = '';
+    // Server-side enquiry handler (PHP, reusing the Ayaz security + mailer
+    // stack). When empty, the form falls back to opening the visitor's email app.
+    var FORM_ENDPOINT = 'https://computer.co.ke/portfolio-enquiry.php';
 
     var CONTACT_EMAIL = 'douglas@computer.co.ke';
     var WHATSAPP = '254734220002';
     var form = document.getElementById('projectForm');
     if (!form) return;
     var hint = document.getElementById('formHint');
+    var ts = document.getElementById('formTs');
+    var button = form.querySelector('button[type="submit"]');
+
+    function stampTime() { if (ts) ts.value = Math.floor(Date.now() / 1000); }
+    stampTime();
 
     function setHint(message, isError) {
       if (!hint) return;
@@ -286,38 +293,46 @@
         'Problem / requirements:\n' + data.get('message');
     }
 
+    function openMailto(data) {
+      var subject = 'New systems development enquiry - ' + (data.get('name') || '');
+      window.location.href = 'mailto:' + CONTACT_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(buildSummary(data));
+      setHint('Your email app should now open with the details filled in. If it does not, email ' + CONTACT_EMAIL + ' or message WhatsApp ' + WHATSAPP + '.', false);
+    }
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       if (!form.reportValidity()) return;
 
       var data = new FormData(form);
-      var summary = buildSummary(data);
-      var subject = 'New systems development enquiry – ' + (data.get('name') || '');
+      stampTime();
 
-      if (FORM_ENDPOINT) {
-        var button = form.querySelector('button[type="submit"]');
-        if (button) button.disabled = true;
-        setHint('Sending your enquiry…', false);
-        fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: data
-        }).then(function (response) {
-          if (!response.ok) throw new Error('Request failed');
-          form.reset();
-          setHint('Thank you — your enquiry has been sent. I will get back to you shortly.', false);
-        }).catch(function () {
-          setHint('Sorry, something went wrong. Please email ' + CONTACT_EMAIL + ' or message WhatsApp ' + WHATSAPP + '.', true);
-        }).then(function () {
-          if (button) button.disabled = false;
+      if (!FORM_ENDPOINT) { openMailto(data); return; }
+
+      if (button) button.disabled = true;
+      setHint('Sending your enquiry…', false);
+
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      }).then(function (response) {
+        return response.json().catch(function () { return {}; }).then(function (body) {
+          if (response.ok && body.ok) {
+            form.reset();
+            stampTime();
+            setHint(body.message || 'Thank you — your enquiry has been sent. I will get back to you shortly.', false);
+            return;
+          }
+          setHint(body.error || 'Sorry, your enquiry could not be sent. Please email ' + CONTACT_EMAIL + ' or message WhatsApp ' + WHATSAPP + '.', true);
         });
-        return;
-      }
-
-      window.location.href = 'mailto:' + CONTACT_EMAIL +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(summary);
-      setHint('Your email app should now open with the details filled in. If it does not, email ' + CONTACT_EMAIL + ' or message WhatsApp ' + WHATSAPP + '.', false);
+      }).catch(function () {
+        // Network or CORS failure — fall back to the email app so no lead is lost.
+        openMailto(data);
+      }).then(function () {
+        if (button) button.disabled = false;
+      });
     });
   })();
 </script>
