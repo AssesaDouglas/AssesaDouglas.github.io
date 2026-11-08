@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-KE">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,14 +9,22 @@
   <meta name="description" content="Douglas Assesa is a systems developer in Kenya building custom ERP systems, agricultural and cooperative software, fleet management systems, business automation and PHP/MySQL web applications that solve real operational problems.">
   <meta name="keywords" content="systems developer Kenya, software developer Nairobi, custom software development Kenya, ERP systems Kenya, agricultural ERP Kenya, cooperative management system Kenya, fleet management software Kenya, PHP MySQL developer, business automation Kenya, web application development Nairobi">
   <link rel="canonical" href="https://assesadouglas.github.io/">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Douglas Assesa">
   <meta property="og:title" content="Douglas Assesa | Systems Developer in Kenya">
   <meta property="og:description" content="Practical business systems that reduce paperwork, improve visibility and help Kenyan businesses operate better.">
   <meta property="og:url" content="https://assesadouglas.github.io/">
-  <meta property="og:image" content="https://computer.co.ke/assets/douglas-assesa-systems-developer.png">
+  <meta property="og:image" content="https://assesadouglas.github.io/assets/douglas-assesa-systems-developer.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Douglas Assesa — Systems Developer in Kenya. Business systems that make work flow.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Douglas Assesa | Systems Developer in Kenya">
   <meta name="twitter:description" content="Custom ERP, business software and workflow automation for organisations in Kenya.">
+  <meta name="twitter:image" content="https://assesadouglas.github.io/assets/douglas-assesa-systems-developer.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,13 +37,65 @@
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Douglas Assesa",
-    "jobTitle":"Systems Developer",
-    "description":"Systems developer designing custom business software, ERP systems and workflow automation for organisations in Kenya.",
-    "address":{"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"},
-    "knowsAbout":["Systems development","ERP software","Agricultural management systems","Fleet management software","PHP","MySQL","Business process automation","Web application development"],
-    "url":"https://computer.co.ke/"
+    "@graph":[
+      {
+        "@type":"Person",
+        "@id":"https://assesadouglas.github.io/#person",
+        "name":"Douglas Assesa",
+        "jobTitle":"Systems Developer",
+        "description":"Systems developer designing custom business software, ERP systems and workflow automation for organisations in Kenya.",
+        "address":{"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"},
+        "knowsAbout":["Systems development","ERP software","Agricultural management systems","Fleet management software","PHP","MySQL","Business process automation","Web application development"],
+        "telephone":"+254734220002",
+        "email":"douglas@computer.co.ke",
+        "url":"https://assesadouglas.github.io/"
+      },
+      {
+        "@type":"ProfessionalService",
+        "@id":"https://assesadouglas.github.io/#service",
+        "name":"Douglas Assesa — Systems Development",
+        "description":"Custom ERP systems, agricultural and cooperative software, fleet management systems, client portals, business automation and PHP/MySQL web applications for organisations in Kenya.",
+        "url":"https://assesadouglas.github.io/",
+        "image":"https://assesadouglas.github.io/assets/douglas-assesa-systems-developer.png",
+        "telephone":"+254734220002",
+        "email":"douglas@computer.co.ke",
+        "priceRange":"$$",
+        "address":{"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"},
+        "areaServed":{"@type":"Country","name":"Kenya"},
+        "founder":{"@id":"https://assesadouglas.github.io/#person"},
+        "knowsAbout":["Custom ERP development","Agricultural ERP","Cooperative management systems","Fleet management software","Property management software","Client portals","M-Pesa integration","Business process automation"],
+        "hasOfferCatalog":{
+          "@type":"OfferCatalog",
+          "name":"Software development services",
+          "itemListElement":[
+            {"@type":"Offer","itemOffered":{"@type":"Service","name":"Agricultural ERP & Cooperative Management"}},
+            {"@type":"Offer","itemOffered":{"@type":"Service","name":"Fleet & Transport Management"}},
+            {"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom ERP & Business Management"}},
+            {"@type":"Offer","itemOffered":{"@type":"Service","name":"Property and Rental Management"}},
+            {"@type":"Offer","itemOffered":{"@type":"Service","name":"Client Portals & Document Workflows"}},
+            {"@type":"Offer","itemOffered":{"@type":"Service","name":"PHP, MySQL & AI-powered Applications"}}
+          ]
+        }
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://assesadouglas.github.io/#website",
+        "url":"https://assesadouglas.github.io/",
+        "name":"Douglas Assesa — Systems Developer in Kenya",
+        "publisher":{"@id":"https://assesadouglas.github.io/#person"},
+        "inLanguage":"en"
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {"@type":"Question","name":"How much does custom software development cost in Kenya?","acceptedAnswer":{"@type":"Answer","text":"The cost depends on the workflow, number of user roles, integrations, reporting requirements and delivery stages. A focused tool is usually simpler to scope than a full ERP. After understanding your requirements, I can prepare a defined scope and estimate rather than give you a misleading one-size-fits-all price."}},
+          {"@type":"Question","name":"Can you build a system for my specific business?","acceptedAnswer":{"@type":"Answer","text":"Yes. The starting point is to understand how your business operates, what information it handles and where delays, errors or lack of visibility occur. The system is then scoped around those needs."}},
+          {"@type":"Question","name":"Can the system integrate with M-Pesa, SMS or other software?","acceptedAnswer":{"@type":"Answer","text":"Where suitable APIs and provider access are available, integrations can be planned for M-Pesa, SMS gateways, accounting tools, websites and other business services. Integration feasibility is confirmed during discovery."}},
+          {"@type":"Question","name":"Will my staff be able to use it on their phones?","acceptedAnswer":{"@type":"Answer","text":"Web applications can be designed responsively for phones, tablets and desktop computers. Offline operation is possible for selected workflows, but it needs to be designed and tested explicitly."}},
+          {"@type":"Question","name":"Do I need to know exactly what software I want?","acceptedAnswer":{"@type":"Answer","text":"No. Explain the work you need to manage and what is going wrong today. We can map the process together and determine whether you need a custom application, an ERP module, an integration or a simpler improvement."}}
+        ]
+      }
+    ]
   }
   </script>
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NJLGJNVT"></script>
@@ -173,8 +233,8 @@
     <div class="container contact-grid">
       <div><span class="eyebrow" style="color:var(--mint)">Let's talk about the work</span><h2>What is the one process you wish your business handled better?</h2><p>Tell me what your team is struggling with. It could be stock control, farmer payments, truck tracking, customer documents, approvals, reporting or a process still managed through spreadsheets and WhatsApp.</p><p>Share a little context and I will follow up to understand the requirement and the best next step.</p>
         <div class="contact-options">
-          <div class="contact-option"><div class="iconbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.5 2.7a2 2 0 0 1-.6 1.8L8.1 11a16 16 0 0 0 4.9 4.9l1.8-1.9a2 2 0 0 1 1.8-.6l2.7.5a2 2 0 0 1 1.7 2z"/></svg></div><div><small>Phone / WhatsApp</small><strong>0734220002</strong></div></div>
-          <div class="contact-option"><div class="iconbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div><small>Email</small><strong>douglas@computer.co.ke</strong></div></div>
+          <div class="contact-option"><div class="iconbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.5 2.7a2 2 0 0 1-.6 1.8L8.1 11a16 16 0 0 0 4.9 4.9l1.8-1.9a2 2 0 0 1 1.8-.6l2.7.5a2 2 0 0 1 1.7 2z"/></svg></div><div><small>Phone / WhatsApp</small><strong><a href="https://wa.me/254734220002?text=Hello%20Douglas%2C%20I%27d%20like%20to%20discuss%20a%20system%20for%20my%20business." target="_blank" rel="noopener">0734 220 002</a></strong></div></div>
+          <div class="contact-option"><div class="iconbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div><small>Email</small><strong><a href="mailto:douglas@computer.co.ke">douglas@computer.co.ke</a></strong></div></div>
           <div class="contact-option"><div class="iconbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><small>Based in</small><strong>Nairobi, Kenya · Working with organisations across Kenya</strong></div></div>
         </div>
       </div>
@@ -189,7 +249,7 @@
           <div class="field full"><label for="message">What problem are you trying to solve? *</label><textarea id="message" name="message" required placeholder="Tell me how you currently handle this work, what is difficult and what a better outcome would look like."></textarea></div>
         </div>
         <button class="btn btn-primary" type="submit" style="width:100%">Prepare my project enquiry <span>→</span></button>
-        <p class="form-hint" id="formHint">This form prepares an email in your email application. Add your real email address in the page settings before publishing.</p>
+        <p class="form-hint" id="formHint">This opens your email app with the details filled in, ready to send. Prefer to chat? Use the WhatsApp number on the left.</p>
       </form>
     </div>
   </section>
@@ -197,28 +257,69 @@
 <footer class="footer"><div class="container footer-inner"><div><strong>DOUGLAS ASSESA</strong> · Systems Developer in Kenya</div><div>Custom software · ERP · Business automation</div><div>© <span id="year"></span> Douglas Assesa. All rights reserved.</div></div></footer>
 <a class="btn btn-primary mobile-cta" href="#contact">Discuss your project <span>→</span></a>
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  // IMPORTANT: Replace this with Douglas's real business email before publishing.
-  const CONTACT_EMAIL = 'douglas@computer.co.ke';
-  document.getElementById('projectForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    if (!this.reportValidity()) return;
-    if (CONTACT_EMAIL.includes('douglas@computer.co.ke')) {
-      document.getElementById('formHint').textContent = 'The page is ready, but the contact email has not been configured yet. Replace CONTACT_EMAIL in the HTML with your real business email before publishing.';
-      return;
+  (function () {
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Set this to a form endpoint (e.g. Formspree/Basin or your own PHP handler)
+    // to capture enquiries server-side. When empty, the form falls back to mailto:.
+    var FORM_ENDPOINT = '';
+
+    var CONTACT_EMAIL = 'douglas@computer.co.ke';
+    var WHATSAPP = '254734220002';
+    var form = document.getElementById('projectForm');
+    if (!form) return;
+    var hint = document.getElementById('formHint');
+
+    function setHint(message, isError) {
+      if (!hint) return;
+      hint.textContent = message;
+      hint.style.color = isError ? '#b42318' : '#748195';
     }
-    const data = new FormData(this);
-    const subject = encodeURIComponent('New systems development enquiry – ' + data.get('name'));
-    const body = encodeURIComponent(
-      'Name: ' + data.get('name') + '\\n' +
-      'Organisation: ' + data.get('organisation') + '\\n' +
-      'Email: ' + data.get('email') + '\\n' +
-      'Phone: ' + data.get('phone') + '\\n' +
-      'Interested in: ' + data.get('need') + '\\n\\n' +
-      'Problem / requirements:\\n' + data.get('message')
-    );
-    window.location.href = 'mailto:' + douglas@computer.co.ke + '?subject=' + subject + '&body=' + body;
-  });
+
+    function buildSummary(data) {
+      return 'Name: ' + data.get('name') + '\n' +
+        'Organisation: ' + data.get('organisation') + '\n' +
+        'Email: ' + data.get('email') + '\n' +
+        'Phone: ' + data.get('phone') + '\n' +
+        'Interested in: ' + data.get('need') + '\n\n' +
+        'Problem / requirements:\n' + data.get('message');
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      var data = new FormData(form);
+      var summary = buildSummary(data);
+      var subject = 'New systems development enquiry – ' + (data.get('name') || '');
+
+      if (FORM_ENDPOINT) {
+        var button = form.querySelector('button[type="submit"]');
+        if (button) button.disabled = true;
+        setHint('Sending your enquiry…', false);
+        fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        }).then(function (response) {
+          if (!response.ok) throw new Error('Request failed');
+          form.reset();
+          setHint('Thank you — your enquiry has been sent. I will get back to you shortly.', false);
+        }).catch(function () {
+          setHint('Sorry, something went wrong. Please email ' + CONTACT_EMAIL + ' or message WhatsApp ' + WHATSAPP + '.', true);
+        }).then(function () {
+          if (button) button.disabled = false;
+        });
+        return;
+      }
+
+      window.location.href = 'mailto:' + CONTACT_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(summary);
+      setHint('Your email app should now open with the details filled in. If it does not, email ' + CONTACT_EMAIL + ' or message WhatsApp ' + WHATSAPP + '.', false);
+    });
+  })();
 </script>
 </body>
 </html>
