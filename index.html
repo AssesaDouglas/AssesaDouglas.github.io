@@ -38,18 +38,16 @@
     @media(max-width:900px){
       .nav-cta{display:none}
       .nav-links{display:none}
-      .nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .2s}
-      .nav-toggle:hover{transform:translateY(-1px)}
+      .nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.3);color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:transform .2s,background .2s}
+      .nav-toggle:hover{transform:translateY(-1px);background:rgba(255,255,255,.42)}
       .nav-toggle:active{transform:scale(.94)}
-      .nav-toggle:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:10px}
-      .nav-toggle-bars{position:relative;display:block;width:24px;height:16px}
-      .nav-toggle-bars span{position:absolute;right:0;height:2px;background:#fff;border-radius:2px;transition:width .32s cubic-bezier(.4,0,.2,1),top .32s cubic-bezier(.4,0,.2,1),transform .32s cubic-bezier(.4,0,.2,1),opacity .22s}
+      .nav-toggle:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+      .nav-toggle-bars{position:relative;display:block;width:24px;height:12px}
+      .nav-toggle-bars span{position:absolute;right:0;height:2px;background:#fff;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:width .32s cubic-bezier(.4,0,.2,1),top .32s cubic-bezier(.4,0,.2,1),transform .32s cubic-bezier(.4,0,.2,1)}
       .nav-toggle-bars span:nth-child(1){width:24px;top:0}
-      .nav-toggle-bars span:nth-child(2){width:18px;top:7px}
-      .nav-toggle-bars span:nth-child(3){width:12px;top:14px}
-      .nav-toggle.is-open .nav-toggle-bars span:nth-child(1){width:24px;top:7px;transform:rotate(45deg)}
-      .nav-toggle.is-open .nav-toggle-bars span:nth-child(2){opacity:0;transform:scaleX(0);transform-origin:100% 50%}
-      .nav-toggle.is-open .nav-toggle-bars span:nth-child(3){width:24px;top:7px;transform:rotate(-45deg)}
+      .nav-toggle-bars span:nth-child(2){width:14px;top:10px}
+      .nav-toggle.is-open .nav-toggle-bars span:nth-child(1){width:24px;top:5px;transform:rotate(45deg)}
+      .nav-toggle.is-open .nav-toggle-bars span:nth-child(2){width:24px;top:5px;transform:rotate(-45deg)}
       .mobile-menu{display:flex;position:absolute;top:calc(100% + 10px);left:20px;right:20px;flex-direction:column;gap:4px;padding:10px;border-radius:22px;background:#fff;color:var(--ink);box-shadow:0 24px 60px rgba(4,15,26,.35);z-index:30;opacity:0;visibility:hidden;transform:translateY(-12px) scale(.97);transform-origin:top right;transition:opacity .24s,transform .24s,visibility .24s}
       .mobile-menu.is-open{opacity:1;visibility:visible;transform:none}
       .mobile-menu a{padding:14px 16px;border-radius:14px;font-weight:600;font-size:1rem;color:var(--ink);transition:background .2s,color .2s}
@@ -138,7 +136,7 @@
     </nav>
     <a class="btn btn-primary nav-cta" href="#contact">Discuss a project <span aria-hidden="true">↗</span></a>
     <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
-      <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span></span>
     </button>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
